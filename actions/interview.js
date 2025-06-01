@@ -110,12 +110,16 @@ export async function saveQuizResult(questions, answers, score) {
     }
   }
 
+console.log("Questions:", questions);
+console.log("Answers:", answers);
+console.log("Score:", score);
+
   try {
     const assessment = await db.assessment.create({
       data: {
         userId: user.id,
         quizScore: score,
-        questions: questionResults,
+        question: questionResults,
         category: "Technical",
         improvementTip,
       },
